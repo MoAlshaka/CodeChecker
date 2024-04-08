@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\CheckController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+Route::get('user/check', [CheckController::class, 'index'])->name('user.check.index');
+Route::post('user/check', [CheckController::class, 'check'])->name('user.check');
